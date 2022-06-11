@@ -130,6 +130,7 @@ dmypy.json
 
 # Local
 local/
+opencv-python-4.5.3.56/
 
 # IDE
 **/**/.idea
