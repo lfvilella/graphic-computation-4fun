@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graphic Computation Colors Handling</title>
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous"
+  />
+  <!-- Styles -->
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+<section class="bg-second-color">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h1 class="title small-margin-top">
+          Graphic Computation Images Handling
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container-fluid">
+    <div class="row small-margin-top">
+      <div
+        data-spy="scroll"
+        class="col-2 overflow-auto gray-line-right"
+        style="height: 85vh"
+      >
+        <button id="btnLoad"
+                type="button"
+                class="btn src-button-inverted w-100">
+          Load image
+        </button>
+        <hr>
+        <div class="btn-group-vertical w-100" role="group" aria-label="Basic example">
+          <button id="btnBrightness"
+                  type="button"
+                  class="btn src-button">
+            Apply Brightness
+          </button>
+          <button id="btnContrast"
+                  type="button"
+                  class="btn src-button">
+            Apply Contrast
+          </button>
+        </div>
+        <hr>
+        <div class="btn-group-vertical w-100" role="group" aria-label="Basic example">
+          <button id="btnRed"
+                  type="button"
+                  class="btn src-button">
+            Apply Red Scale
+          </button>
+          <button id="btnGreen"
+                  type="button"
+                  class="btn src-button">
+            Apply Green Scale
+          </button>
+          <button id="btnBlue"
+                  type="button"
+                  class="btn src-button">
+            Apply Blue Scale
+          </button>
+          <button id="btnCyan"
+                  type="button"
+                  class="btn src-button">
+            Apply Cyan Scale
+          </button>
+          <button id="btnMagenta"
+                  type="button"
+                  class="btn src-button">
+            Apply Magenta Scale
+          </button>
+          <button id="btnYellow"
+                  type="button"
+                  class="btn src-button">
+            Apply Yellow Scale
+          </button>
+        </div>
+        <hr>
+        <div class="btn-group-vertical w-100" role="group" aria-label="Basic example">
+          <button id="btnGray"
+                  type="button"
+                  class="btn src-button">
+            Apply Gray Scale
+          </button>
+          <button id="btnGrayMean"
+                  type="button"
+                  class="btn src-button">
+            Apply Gray Mean Scale
+          </button>
+          <button id="btnGrayMedian"
+                  type="button"
+                  class="btn src-button">
+            Apply Gray Median Scale
+          </button>
+          <button id="btnThresholding"
+                  type="button"
+                  class="btn src-button">
+            Apply Thresholding Scale
+          </button>
+          <button id="btnGrayCIE"
+                  type="button"
+                  class="btn src-button">
+            Apply Gray CIE Scale
+          </button>
+          <button id="btnGrayNTSC"
+                  type="button"
+                  class="btn src-button">
+            Apply Gray NTSC Scale
+          </button>
+        </div>
+        <hr>
+        <div class="btn-group-vertical w-100" role="group" aria-label="Basic example">
+          <button id="btnHorizontalFlip"
+                  type="button"
+                  class="btn src-button">
+            Apply Horizontal Flip
+          </button>
+          <button id="btnVerticalFlip"
+                  type="button"
+                  class="btn src-button">
+            Apply Vertical Flip
+          </button>
+          <button id="btnRotate90Degree"
+                  type="button"
+                  class="btn src-button">
+            Apply 90 Degree Rotation
+          </button>
+        </div>
+      </div>
+      <div class="col-10">
+        <!-- TODO: Add an input img field-->
+        <img id="image" hidden src="./static/images/sea.jpeg"/>
+<!--        <img id="image" hidden src="https://s2.static.brasilescola.uol.com.br/be/2021/03/leopardo.jpg"/>-->
+<!--        <img id="image" hidden src="https://lfvilella.com/static/img/me-min.jpg"/>-->
+        <canvas id="image-canvas"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="./static/main.js"></script>
+</body>
+</html>
