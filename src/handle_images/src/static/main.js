@@ -43,8 +43,10 @@ class MatrixImage {
 
 
 let IMAGE = document.getElementById('image');
-// IMAGE.setAttribute('crossOrigin', 'Anonymous');
+IMAGE.crossOrigin = 'anonymous';
+let LAST_IMAGE = IMAGE;
 let CANVAS = document.getElementById('image-canvas');
+CANVAS.crossOrigin = 'anonymous';
 let CONTEXT;
 
 
@@ -62,9 +64,32 @@ let drawImage = function(cv, ctx, img, buildSquare = false) {
 }
 
 
-let load = function (){
+function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+
+const _DEFAULT_IMAGES = ['./static/images/sea.jpeg',
+                         './static/images/clown-fish.jpeg']
+
+let load = async function (){
+    let inputImage = document.getElementById('inputImage').value
+    if (!inputImage) {
+        alert("Imagem inválida, carregaremos uma imagem padrão.");
+        inputImage = _DEFAULT_IMAGES[Math.floor(Math.random()*_DEFAULT_IMAGES.length)];
+    }
+    IMAGE.src = inputImage;
+    LAST_IMAGE = IMAGE;
+    await delay(1300);  // TODO: Should be load here
     CONTEXT = CANVAS.getContext('2d');
     drawImage(CANVAS, CONTEXT, IMAGE);
+}
+
+let resetImage = function (){
+    CONTEXT = CANVAS.getContext('2d');
+    drawImage(CANVAS, CONTEXT, LAST_IMAGE);
 }
 
 
@@ -423,6 +448,7 @@ let rotate90Degree = function() {
 
 
 document.getElementById('btnLoad').addEventListener('click', load);
+document.getElementById('btnResetImage').addEventListener('click', resetImage);
 document.getElementById('btnGray').addEventListener('click', grayScale);
 document.getElementById('btnGrayMean').addEventListener(
         'click', grayMeanScale);

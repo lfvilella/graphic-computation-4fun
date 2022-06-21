@@ -20,7 +20,7 @@
   <div class="container">
     <div class="row">
       <div class="col text-center">
-        <h1 class="title small-margin-top">
+        <h1 class="title">
           Graphic Computation Images Handling
         </h1>
       </div>
@@ -29,18 +29,38 @@
 </section>
 <section>
   <div class="container-fluid">
-    <div class="row small-margin-top">
+    <div class="row" style="margin-top: 10px">
+      <div class="col-12">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="btn-group" role="group">
+              <button id="btnResetImage"
+                      type="button"
+                      class="btn src-button-inverted w-100">
+                Reset
+              </button>
+              <button id="btnLoad"
+                      type="button"
+                      class="btn src-button-inverted w-100">
+                Load
+              </button>
+            </div>
+          </div>
+          <input id="inputImage"
+                 itype="text"
+                 class="form-control"
+                 placeholder="Insira uma imagem"
+                 aria-label=""
+                 value="https://picsum.photos/900/600"
+                 aria-describedby="basic-addon1"
+          >
+        </div>
+      </div>
       <div
         data-spy="scroll"
         class="col-2 overflow-auto gray-line-right"
         style="height: 85vh"
       >
-        <button id="btnLoad"
-                type="button"
-                class="btn src-button-inverted w-100">
-          Load image
-        </button>
-        <hr>
         <div class="btn-group-vertical w-100" role="group" aria-label="Basic example">
           <button id="btnBrightness"
                   type="button"
@@ -144,10 +164,7 @@
         </div>
       </div>
       <div class="col-10">
-        <!-- TODO: Add an input img field-->
-        <img id="image" hidden src="./static/images/sea.jpeg"/>
-<!--        <img id="image" hidden src="https://s2.static.brasilescola.uol.com.br/be/2021/03/leopardo.jpg"/>-->
-<!--        <img id="image" hidden src="https://lfvilella.com/static/img/me-min.jpg"/>-->
+        <img id="image" hidden/>
         <canvas id="image-canvas"></canvas>
       </div>
     </div>
