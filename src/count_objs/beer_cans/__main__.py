@@ -29,14 +29,21 @@ def count_coins_from_image(filepath, debug):
     image_blur = cv2.medianBlur(image, 25)
     image_blur_gray = cv2.cvtColor(image_blur, cv2.COLOR_BGR2GRAY)
     _, image_thresh = cv2.threshold(
-            image_blur_gray, 240, 255, cv2.THRESH_BINARY_INV)
+            image_blur_gray, 85, 255, cv2.THRESH_BINARY_INV)
 
-    kernel = np.ones((3, 3), np.uint8)
+    kernel = np.ones((10, 10), np.uint8)
     opening = cv2.morphologyEx(image_thresh, cv2.MORPH_OPEN, kernel)
 
+    # cv2.imshow('image', image)
+    # cv2.imshow('image_blur', image_blur)
+    cv2.imshow('image_blur_gray', image_blur_gray)
+    cv2.imshow('image_thresh', image_thresh)
+    cv2.imshow('opening', opening)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
     dist_transform = cv2.distanceTransform(opening, cv2.DIST_L2, 5)
     _, result_image = cv2.threshold(
-            dist_transform, 0.3 * dist_transform.max(), 255, 0)
+        dist_transform, 0.3 * dist_transform.max(), 255, 0)
     result_image = np.uint8(result_image)
 
     contours = cv2.findContours(result_image.copy(), cv2.RETR_EXTERNAL,
@@ -44,16 +51,16 @@ def count_coins_from_image(filepath, debug):
     contours = imutils.grab_contours(contours)
     coins_number = len(contours)
 
-    if debug:
-        _flag_coins(image, contours)
-        images_data_to_display = {
-                'Original Image': cv2.imread(filepath),
-                'Image Blur': image_blur,
-                'Image COLOR_BGR2GRAY': image_blur_gray,
-                'Image result': result_image,
-                'Image count labels': image,
-                }
-        display(images_data_to_display, coins_number)
+    # if debug:
+    #     _flag_coins(image, contours)
+    #     images_data_to_display = {
+    #             'Original Image': cv2.imread(filepath),
+    #             'Image Blur': image_blur,
+    #             'Image COLOR_BGR2GRAY': image_blur_gray,
+    #             'Image result': result_image,
+    #             'Image count labels': image,
+    #             }
+    #     display(images_data_to_display, coins_number)
 
     return coins_number
 
